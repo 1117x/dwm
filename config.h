@@ -31,9 +31,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class        instance  title          tags mask     isfloating   monitor */
-	{ "Alacritty",  NULL,     "pulsemixer",  0,            1,           -1 },
-	{ "Alacritty",  NULL,     "nmtui",       0,            1,           -1 },
+	/* class        instance       title          tags mask     isfloating   monitor */
+	{ "Alacritty",  NULL,          "pulsemixer",  0,            1,           -1 },
+	{ "Alacritty",  NULL,          "nmtui",       0,            1,           -1 }
 };
 
 /* layout(s) */
@@ -65,7 +65,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|Mod1Mask,              XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
