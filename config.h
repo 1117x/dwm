@@ -34,7 +34,7 @@ static const Rule rules[] = {
 	/* class        instance       title          tags mask     iscentered   isfloating   monitor */
 	{ "Alacritty",  "nmtui",       NULL,         ~0,            1,           1,           -1 },
 	{ "Alacritty",  "pulsemixer",  NULL,          0,            1,           1,           -1 },
-        { "Dragon",     "dragon",      NULL,         ~0,            0,           1,           -1 }
+  { "Dragon",     "dragon",      NULL,         ~0,            0,           1,           -1 }
 
 };
 
