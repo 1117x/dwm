@@ -32,8 +32,10 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class        instance       title          tags mask     isfloating   monitor */
-	{ "Alacritty",  NULL,          "pulsemixer",  0,            1,           -1 },
-	{ "Alacritty",  NULL,          "nmtui",       0,            1,           -1 }
+	{ "Alacritty",  "nmtui",       NULL,         ~0,            1,           -1 },
+	{ "Alacritty",  "pulsemixer",  NULL,          0,            1,           -1 },
+  { "Dragon",     "dragon",      NULL,         ~0,            1,           -1 }
+
 };
 
 /* layout(s) */
