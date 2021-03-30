@@ -43,6 +43,7 @@ static const Rule rules[] = {
   { "firefox",    NULL,          NULL,          1,            0,           0,           -1,       0 },
   { "TelegramDesktop", NULL,     NULL,          1<<2,         0,           0,           -1,       0 },
   { "discord",    NULL,          NULL,          1<<2,         0,           0,           -1,       0 },
+  { "code-oss",   NULL,          NULL,          1<<1,         0,           0,           -1,       0 },
 };
 
 /* window swallowing */
