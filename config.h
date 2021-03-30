@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "爵 ", " ", "ﮠ ", " ", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -39,12 +39,16 @@ static const Rule rules[] = {
   { "Dragon",     "dragon",      NULL,         ~0,            0,           1,           -1,       0 },
 	{ "Alacritty",  "scratchpad",  NULL,          0,            1,           1,           -1,      's' },
 	{ "Alacritty",  "scratchpython", NULL,        0,            1,           1,           -1,      'p' },
+	{ "Alacritty",  "cmus",        NULL,          1<<3,         0,           0,           -1,       0 },
+  { "firefox",    NULL,          NULL,          1,            0,           0,           -1,       0 },
+  { "TelegramDesktop", NULL,     NULL,          1<<2,         0,           0,           -1,       0 },
+  { "discord",    NULL,          NULL,          1<<2,         0,           0,           -1,       0 },
 };
 
 /* window swallowing */
 static const int swaldecay = 3;
 static const int swalretroactive = 1;
-static const char swalsymbol[] = "a";
+static const char swalsymbol[] = "﬒";
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
@@ -86,8 +90,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_dead_circumflex,  togglescratch,  {.v = python_scratchpadcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_plus,   incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_minus,  incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
