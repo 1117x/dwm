@@ -40,6 +40,7 @@ static const Rule rules[] = {
 	{ "Alacritty",  "mutt",        NULL,          0,            1,           1,           -1,       0 },
 	/* { "Alacritty",  "vifm",        NULL,          0,            1,           1,           -1,       0 }, */
   { "Dragon",     "dragon",      NULL,         ~0,            0,           1,           -1,       0 },
+  { "trayer",     NULL,          NULL,         ~0,            0,           1,           -1,       0 },
 	{ "Alacritty",  "scratchpad",  NULL,          0,            1,           1,           -1,      's' },
 	{ "Alacritty",  "scratchpython", NULL,        0,            1,           1,           -1,      'p' },
 	{ "Alacritty",  "cmus",        NULL,          0,            1,           1,           -1,      'm' },
