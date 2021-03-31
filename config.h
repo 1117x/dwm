@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "爵 ", " ", " ", " ", " "};
+static const char *tags[] = { "爵 ", " ", " ", " ", " "};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -39,11 +39,13 @@ static const Rule rules[] = {
   { "Dragon",     "dragon",      NULL,         ~0,            0,           1,           -1,       0 },
 	{ "Alacritty",  "scratchpad",  NULL,          0,            1,           1,           -1,      's' },
 	{ "Alacritty",  "scratchpython", NULL,        0,            1,           1,           -1,      'p' },
-	{ "Alacritty",  "cmus",        NULL,          1<<4,         0,           0,           -1,       0 },
+	{ "Alacritty",  "cmus",        NULL,          0,            1,           1,           -1,      'm' },
   { "firefox",    NULL,          NULL,          1,            0,           0,           -1,       0 },
   { "TelegramDesktop", NULL,     NULL,          1<<3,         0,           0,           -1,       0 },
   { "discord",    NULL,          NULL,          1<<3,         0,           0,           -1,       0 },
   { "code-oss",   NULL,          NULL,          1<<2,         0,           0,           -1,       0 },
+  { "Gimp",       NULL,          NULL,          1<<4,         0,           0,           -1,       0 },
+  { "Inkscape",   NULL,          NULL,          1<<4,         0,           0,           -1,       0 },
 };
 
 /* window swallowing */
@@ -81,6 +83,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 /*First arg only serves to match against key in rules*/
 static const char *terminal_scratchpadcmd[] = {"s", "alacritty", "--class", "scratchpad", NULL}; 
 static const char *python_scratchpadcmd[] = {"p", "alacritty", "--class", "scratchpython", "-e", "ipython", NULL}; 
+static const char *cmus_scratchpadcmd[] = {"m", "alacritty", "--class", "cmus", "-e", "cmus", NULL}; 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -89,6 +92,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_dead_circumflex,  togglescratch,  {.v = terminal_scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_dead_circumflex,  togglescratch,  {.v = python_scratchpadcmd } },
+	{ MODKEY,                       XK_m,      togglescratch,  {.v = cmus_scratchpadcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_plus,   incnmaster,     {.i = +1 } },
