@@ -24,6 +24,8 @@ static const char *colors[][3]      = {
  	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
  	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
   [SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+  [SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+  [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -55,7 +57,7 @@ static const Rule rules[] = {
 /* window swallowing */
 static const int swaldecay = 3;
 static const int swalretroactive = 1;
-static const char swalsymbol[] = "﬒";
+static const char swalsymbol[] = " ﬒";
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
@@ -64,9 +66,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "舘",      tile },    /* first entry is default */
-	{ " ",      NULL },    /* no layout function means floating behavior */
-	{ " ",      monocle },
+	{ " 舘",      tile },    /* first entry is default */
+	{ "  ",      NULL },    /* no layout function means floating behavior */
+	{ "  ",      monocle },
 };
 
 /* key definitions */
