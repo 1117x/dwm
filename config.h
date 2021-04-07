@@ -46,6 +46,7 @@ static const Rule rules[] = {
 	{ "Alacritty",  "scratchpad",  NULL,          0,            1,           1,           -1,      's' },
 	{ "Alacritty",  "scratchpython", NULL,        0,            1,           1,           -1,      'p' },
 	{ "Alacritty",  "cmus",        NULL,          0,            1,           1,           -1,      'm' },
+	{ "stalonetray",NULL,          NULL,          0,            1,           1,           -1,      't' },
   { "firefox",    NULL,          NULL,          1,            0,           0,           -1,       0 },
   { "TelegramDesktop", NULL,     NULL,          1<<3,         0,           0,           -1,       0 },
   { "discord",    NULL,          NULL,          1<<3,         0,           0,           -1,       0 },
@@ -90,6 +91,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *terminal_scratchpadcmd[] = {"s", "alacritty", "--class", "scratchpad", NULL}; 
 static const char *python_scratchpadcmd[] = {"p", "alacritty", "--class", "scratchpython", "-e", "ipython", NULL}; 
 static const char *cmus_scratchpadcmd[] = {"m", "alacritty", "--class", "cmus", "-e", "cmus", NULL}; 
+static const char *systray_scratchpadcmd[] = {"t", "stalonetray", NULL}; 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -98,6 +100,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_dead_circumflex,  togglescratch,  {.v = terminal_scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_dead_circumflex,  togglescratch,  {.v = python_scratchpadcmd } },
+	{ MODKEY,                       XK_dead_acute,       togglescratch,  {.v = systray_scratchpadcmd } },
 	{ MODKEY,                       XK_m,      togglescratch,  {.v = cmus_scratchpadcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
