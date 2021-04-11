@@ -29,7 +29,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "爵 ", " ", " ", " ", " "};
+static const char *tags[] = { "爵 ", " ", " ", " ", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -58,7 +58,7 @@ static const Rule rules[] = {
 /* window swallowing */
 static const int swaldecay = 3;
 static const int swalretroactive = 1;
-static const char swalsymbol[] = " ﬒";
+static const char swalsymbol[] = "﬒ ";
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
@@ -67,9 +67,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ " 舘",      tile },    /* first entry is default */
-	{ "  ",      NULL },    /* no layout function means floating behavior */
-	{ "  ",      monocle },
+	{ " 舘  ",      tile },    /* first entry is default */
+	{ "   ",      NULL },    /* no layout function means floating behavior */
+	{ "   ",      monocle },
 };
 
 /* key definitions */
