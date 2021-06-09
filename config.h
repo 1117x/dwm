@@ -11,21 +11,27 @@ static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows sel
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const char *fonts[]          = { "Mononoki Nerd Font:size=10" };
 static const char dmenufont[]       = "Mononoki Nerd Font:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char col_cyan2[]       = "#04a7e8";
+
+static const char norm_fg[] = "#d8dee9";
+static const char norm_bg[] = "#2E3440";
+static const char norm_border[] = "#4C566A";
+
+static const char bar_border[] = "#4C566A";
+
+static const char sel_fg[] = "#eceff4";
+static const char sel_bg[] = "#4C566A";
+static const char sel_border[] = "#8FBCBB";
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-  [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-  [SchemeSel]  = { col_gray4, col_cyan,  col_cyan2 },
- 	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
- 	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-  [SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-  [SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-  [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+
+  /*               fg           bg         border                         */
+  [SchemeNorm]    = { norm_fg,  norm_bg,   norm_border }, // unfocused wins
+  [SchemeSel]     = { sel_fg,   sel_bg,    sel_border },  // the focused win
+ 	[SchemeStatus]  = { norm_fg, norm_bg,  sel_fg  }, // Statusbar right {text,background,not used but cannot be empty}
+ 	[SchemeTagsSel]  = { sel_fg, sel_bg,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+  [SchemeTagsNorm]  = { norm_fg, norm_bg,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+  [SchemeInfoSel]  = { sel_fg, sel_bg,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+  [SchemeInfoNorm]  = { norm_fg, norm_bg,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -84,7 +90,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 /*First arg only serves to match against key in rules*/
